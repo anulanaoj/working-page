@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joana Franco</title>
+  <link rel="stylesheet" href="stylesindex.css">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      text-align: justify; /* Justify all text */
+    }
+    body {
+      font-family: interface, sans-serif;
+      font-size: 0.8em;
+      color: #333;
+      background: #ffffff;
+    }
+    .main {
+      display: flex;
+      flex-direction: row; /* Stack elements horizontally */
+      align-items: flex-start; /* Center align all content */
+      width: 100%; /* Allow full width for content */
+      margin: 0 auto;
+      padding: 0vw;
+    }
+    .sidebar-box {
+      text-align: left; /* Align content to the left */
+      width: 20vw; /* Set width to 30vw */
+      margin-bottom: 2em; /* Add spacing below sidebar */
+      margin-left: 2em;
+    }
+    .sidebar-box img {
+      width: 20vw; /* Set image width to 30vw */
+      height: auto;
+      object-fit: cover;
+      margin-top: 1em; /* Add spacing above image */
+    }
+    .menu-box {
+      text-align: left; /* Align content to the left */
+      width: 20vw; /* Set width to 30vw */
+      margin-bottom: 2em; /* Add spacing below menu */
+    }
+    .menu-box p, .menu-box a {
+      line-height: 1.5em;
+      margin: 0;
+    }
+    .menu-box a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .menu-box a:hover {
+      text-decoration: underline;
+    }
+    .research-item {
+      width: 10vw; /* Set width for items */
+      text-align: center; /* Center align items */
+    }
+    .research-item img {
+      width: 100%; /* Make images responsive */
+      height: auto;
+    }
+    .research-item p {
+      margin-top: 0.5em; /* Add spacing above text */
+      font-size: 1em; /* Adjust font size for readability */
+      justify-content: left; /* Align text to the left */
+      text-align: left; /* Align text to the left */
+    }
+    #menu-hover-image {
+      display: none;
+      position: fixed;
+      left: 70%;
+      top: 50%;
+      width: 45vw; /* Set hover image width to 30vw */
+      max-width: 45vw;
+      max-height: 80vh;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      object-fit: contain;
+    }
+    @media (max-width: 900px) {
+      .main {
+        flex-direction: column; /* Stack elements vertically */
+
+        align-items: flex-start; /* Align content to the left */
+        width: 90%; /* Use full width */
+        padding: 0em; /* Reduce padding */
+      }
+      .sidebar-box {
+        width: 100%; /* Make sidebar full width */
+        margin-left: 2em; /* Remove left margin */
+        margin-bottom: 1em; /* Add spacing below sidebar */
+        
+
+      }
+      .sidebar-box img {
+        width: 60vw; /* Make image smaller on smaller screens */
+        max-width: 300px; /* Optional: set a max width */
+        height: auto; /* Maintain aspect ratio */
+      }
+      .sidebar-box p {
+        font-size: 1em; /* Adjust font size for readability */
+        width: 60vw;
+        text-align: justify;
+        
+      }
+      .menu-box {
+        width: 100%; /* Make menu full width */
+      }
+      .research-grid {
+        padding-left: 6%; /* Remove left margin */
+        width: 100%; /* Make grid full width */
+        gap: 0.5em; /* Reduce spacing between items */
+      }
+      .research-item {
+        width: 45%; /* Adjust width for smaller screens */
+      }
+    }
+    @media (max-width: 600px) {
+      .main {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align content to the left */
+        width: 100%; /* Use full width */
+        padding: 0em; /* Reduce padding */
+      }
+      .sidebar-box {
+        width: 100%; /* Make sidebar full width */
+      }
+      .sidebar-box img {
+        width: 100%; /* Adjust image size for smaller screens */
+      }
+      .menu-box {
+        width: 100%; /* Make menu full width */
+      }
+      .research-grid {
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Make grid full width */
+        gap: 0.5em; /* Reduce spacing between items */
+      }
+      .research-item {
+        width: 30%; /* Adjust width for smaller screens */
+      }
+    }
+    #cv-iframe-container {
+      display: none;
+      position: fixed;
+      top: 45vh;
+      left: 50%;
+      width: 30vw; /* Set iframe container width to 30vw */
+      height: 30%;
+      z-index: 1000;
+      background: #fff;
+    }
+    #cv-iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body ondragstart="return false;">
+  <div class="main">
+    <div class="sidebar-box">
+      <p>
+        <span style="font-size: 0.7em;">v. 2 | 12.07.25</span><br><br>
+        <span id="contact-toggle" style="cursor:pointer; text-decoration:underline;">contact</span><br>
+        <span id="cv-toggle" style="cursor:pointer; text-decoration:underline;">cv</span>
+      </p>
+      <div id="cv-iframe-container">
+        <iframe src="cv.html" title="CV"></iframe>
+      </div>
+      <div class="header"><p>JOANA FRANCO (2001, Ponta Delgada)</p></div>
+      <p>
+      </p>
+      
+<div class="menu-box">
+      <p>
+        <a href="ontouch2025/ontouch.html" style="background-color: #ffffff;" data-hover-img="ontouch2025/ontouch_2025-3.jpg">On Touch, </a>;
+        <a href="gothroughmegothroughyou/gothroughmegothroughyou.html" style="background-color: #ffffff;" data-hover-img="gothroughmegothroughyou/gothroughmegothroughyou_2025-10.jpg">Go Through Me Go Through You</a>;
+        <a href="outlinedbody/outlinedbody.html" style="background-color: #ffffff;" data-hover-img="outlinedbody/untitled.2025-2.jpg">untitled (outlined body)</a>;
+        <a href="interacting with cotton/interactingwithcotton.html" style="background-color: #ffffff;" data-hover-img="interacting with cotton/interactingwith.2025-09.jpg">Interacting With Cotton <span style="color:#b30000;">2025</span></a><br>
+        <a href="idliketotell/idliketotell.html" style="background-color: #ffffff;" data-hover-img="idliketotell/idliketotell2025-14.png">i'd like to tell <span style="color:#b30000;">2025</span></a><br>
+        <a href="bodyinspace/bodyinspace.html" style="background-color: #ffffff;" data-hover-img="bodyinspace/plussign low quality -06.jpg">Body In Space <span style="color:#b30000;">2024</span></a><br>
+        <a href="assumingmaterialform/assumingmterialform.html" style="background-color: #ffffff;" data-hover-img="assumingmaterialform/amf.2023-3.jpg">Assuming Material Form <span style="color:#b30000;">2022-23</span></a><br>
+        <a href="makingpart/makingpart.html" style="background-color: #ffffff;" data-hover-img="makingpart/makingpart.2023-8.jpg">Making Part <span style="color:#b30000;">2021-24</span></a><br>
+        <a href="ofinsideof/ofinsideof.html" style="background-color: #ffffff;" data-hover-img="ofinsideof/W_T21_JoanaFrancoFinais_MarianaLopes_10.jpg">Of Inside Of <span style="color:#b30000;">2021</span></a><br>
+        <br>
+        <a href="webendeavours.html" style="background-color: #ffffff;" data-hover-img="shouffle_me.jpg">web endeavours</a>    
+      </p>
+      <div class="research-item">
+          <p>research</p>
+          <a href="ontouch/on_touch.html">
+            <img src="ontouchimg.jpg" alt="On Touch">
+          </a> </div>
+</div>
+<img src="portrait.jpg" alt="">
+    </div>
+    
+    <img id="menu-hover-image" src="" alt="menu hover image">
+    <script>
+      document.getElementById('contact-toggle').onclick = function() {
+        this.textContent = this.textContent === 'contact' ? 'contact: contact.joanafranco@gmail.com' : 'contact';
+      };
+      const cvToggle = document.getElementById('cv-toggle');
+      const cvIframeContainer = document.getElementById('cv-iframe-container');
+      cvToggle.onclick = function() {
+        cvIframeContainer.style.display = cvIframeContainer.style.display === 'block' ? 'none' : 'block';
+      };
+      const menuBox = document.querySelector('.menu-box');
+      const hoverImg = document.getElementById('menu-hover-image');
+      menuBox.querySelectorAll('a[data-hover-img]').forEach(link => {
+        link.addEventListener('mouseenter', function() {
+          hoverImg.src = this.getAttribute('data-hover-img');
+          hoverImg.style.display = 'block';
+        });
+        link.addEventListener('mouseleave', function() {
+          hoverImg.style.display = 'none';
+          hoverImg.src = '';
+        });
+      });
+    </script>
+    <script>
+      // Ensure all links open in the same tab
+      document.querySelectorAll('a').forEach(link => {
+        link.removeAttribute('target');
+      });
+    </script>
+  </div>
+</body>
+</html>
