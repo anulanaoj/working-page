@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Room Images</title>
     <style>
+       
         body {
             margin: 0;
             padding: 0;
@@ -47,6 +48,39 @@
         .preview-container img {
             height: 100vh; /* Increase height of the preview image */
             width: auto; /* Width adjusts automatically */
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                align-items: center;
+                width: 100vw;
+            }
+            .main-container img {
+                width: 100vw;
+                max-width: 100vw;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        @media (max-width: 600px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                align-items: center;
+                width: 100vw;
+            }
+            .main-container img {
+                width: 100vw;
+                max-width: 100vw;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        .preview-container img {
+            max-height: auto; /* Ensure the preview image does not exceed viewport height */
+            max-width: 100vw; /* Ensure the preview image does not exceed container width */
         }
     </style>
 </head>

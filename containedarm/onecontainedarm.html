@@ -31,8 +31,6 @@
     maincontainer.style.fontWeight = '100';
     maincontainer.style.fontSize = '0.7em';
 
-   
-
     // Create zoom container
     const container = document.createElement('div');
     container.id = 'container';
@@ -64,6 +62,82 @@
     container.appendChild(img);
     maincontainer.appendChild(container);
     document.body.appendChild(maincontainer);
+
+    // --- Touch support for drag and pinch (mobile/tablet) ---
+    function isSmallScreen() {
+      return window.innerWidth <= 900;
+    }
+
+    let lastTouch = null;
+    let pinchStartDist = null;
+    let pinchStartScale = null;
+    let pinchStartOffset = null;
+    let pinchCenter = null;
+
+    function getTouchDist(t1, t2) {
+      const dx = t2.clientX - t1.clientX;
+      const dy = t2.clientY - t1.clientY;
+      return Math.sqrt(dx*dx + dy*dy);
+    }
+
+    function getTouchCenter(t1, t2) {
+      return {
+        x: (t1.clientX + t2.clientX) / 2,
+        y: (t1.clientY + t2.clientY) / 2
+      };
+    }
+
+    container.addEventListener('touchstart', function(e) {
+      if (!isSmallScreen()) return;
+      if (e.touches.length === 1) {
+        isDragging = true;
+        dragStart.x = e.touches[0].clientX;
+        dragStart.y = e.touches[0].clientY;
+        lastOffset.x = offsetX;
+        lastOffset.y = offsetY;
+      } else if (e.touches.length === 2) {
+        isDragging = false;
+        pinchStartDist = getTouchDist(e.touches[0], e.touches[1]);
+        pinchStartScale = scale;
+        pinchStartOffset = {x: offsetX, y: offsetY};
+        pinchCenter = getTouchCenter(e.touches[0], e.touches[1]);
+      }
+    }, { passive: false });
+
+    container.addEventListener('touchmove', function(e) {
+      if (!isSmallScreen()) return;
+      if (e.touches.length === 1 && isDragging) {
+        const dx = e.touches[0].clientX - dragStart.x;
+        const dy = e.touches[0].clientY - dragStart.y;
+        offsetX = lastOffset.x + dx;
+        offsetY = lastOffset.y + dy;
+        updateTransform();
+      } else if (e.touches.length === 2 && pinchStartDist !== null) {
+        const newDist = getTouchDist(e.touches[0], e.touches[1]);
+        let newScale = pinchStartScale * (newDist / pinchStartDist);
+        newScale = Math.max(minScale, Math.min(maxScale, newScale));
+        // Pinch zoom around the center
+        const newCenter = getTouchCenter(e.touches[0], e.touches[1]);
+        const gx = (pinchCenter.x - pinchStartOffset.x) / pinchStartScale;
+        const gy = (pinchCenter.y - pinchStartOffset.y) / pinchStartScale;
+        scale = newScale;
+        offsetX = pinchCenter.x - gx * scale;
+        offsetY = pinchCenter.y - gy * scale;
+        updateTransform();
+      }
+      e.preventDefault();
+    }, { passive: false });
+
+    container.addEventListener('touchend', function(e) {
+      if (!isSmallScreen()) return;
+      if (e.touches.length === 0) {
+        isDragging = false;
+        pinchStartDist = null;
+        pinchStartScale = null;
+        pinchStartOffset = null;
+        pinchCenter = null;
+      }
+    });
 
     // --- Prevent zooming the general page (Ctrl/Cmd + wheel and pinch) ---
     window.addEventListener('wheel', function(e) {
