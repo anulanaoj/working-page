@@ -338,11 +338,78 @@
                 font-size: 0.9em;
             }
         }
+        .custom-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            z-index: 2000;
+            background: #fff;
+            gap: 2em;
+            padding-left: 5%;
+        }
+        .custom-menu a {
+            background: none;
+            color: #b9b9b9;
+            text-decoration: none;
+            margin: 0;
+            font-size: 0.6em;
+            padding: 0.2em 0.2em;
+            font-family: Arial, sans-serif;
+            text-align: left;
+            display: inline-block;
+            border-radius: 4px;
+        }
+        .custom-menu a:hover {
+            background: #ffffff;
+            color: #b30000;
+            text-decoration: underline;
+        }
+        @media (max-width: 900px) {
+            .custom-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1em;
+                padding: 0.7em 1vw 0.7em 1vw;
+            }
+            .custom-menu a {
+                font-size: 0.95em;
+                margin: 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .custom-menu {
+                font-size: 0.95em;
+                gap: 0.7em;
+                padding: 0.5em 0.5vw 0.5em 0.5vw;
+            }
+        }
     </style>
 </head>
 <body>
-      <button class="back-btn" onclick="window.history.back()">&lt;</button>
 
+    <div class="custom-menu">
+        <a href="../index.html">index</a>
+      <a href="../webendeavours.html" style="color: #b7bb9c;">web endeavours</a>
+      <a href="../ontouch/on_touch.html" style="color: #b2977e;">On Touch</a>
+      <a href="../gothroughmegothroughyou/gothroughmegothroughyou.html">Go Through Me Go Through You</a>
+      <a href="../outlinedbody/outlinedbody.html">an outlined body</a>
+      <a href="../interacting with cotton/interactingwithcotton.html">interacting with cotton</a>
+      <a href="../idliketotell/idliketotell.html">i'd like to tell</a>
+      <a href="../bodyinspace/bodyinspace.html">Body In Space</a>
+      <a href="../assumingmaterialform/assumingmterialform.html">Assuming Material Form</a>
+      <a href="../makingpart/makingpart.html">Making Part</a>
+      <a href="../ofinsideof/ofinsideof.html">Of Inside Of</a>
+    </div>
     <div class="main-layout">
         <div class="text-column" style="order:1;">
             <!-- Replace or add your text here -->

@@ -9,16 +9,7 @@ const imageUrls = [
   'ontouch_2025-8.jpg',
 ];
 
-// Shuffle images array
-function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-}
-shuffleArray(imageUrls);
-
-// Render images in the column
+// DO NOT shuffle or randomize the array
 const imageColumn = document.getElementById('image-column');
 imageUrls.forEach((url, idx) => {
   const img = document.createElement('img');
